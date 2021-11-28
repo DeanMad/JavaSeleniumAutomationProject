@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
 
-
     @FindBy(xpath = "//input[@name='user']")
     private WebElement username_input_field;
 

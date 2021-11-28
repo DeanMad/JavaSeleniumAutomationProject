@@ -1,10 +1,13 @@
+import Utilities.CommonOps;
+import Utilities.ExternalProvider;
+import Workflow.GrafanaWeb.WF_Login;
 import org.testng.annotations.Test;
 
 //@Listeners(AutomationListeners.class)
 public class Kuku extends CommonOps {
     @Test
     public void test01() {
-        login();
+        WF_Login.login();
         verifyLogin();
     }
 

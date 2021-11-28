@@ -1,7 +1,7 @@
+package Utilities;
+
 import Hackathon.PageObject.Web.GrafanaPage;
 import Hackathon.PageObject.Web.LoginPage;
-import Utilities.MonteScreenRecorder;
-import com.google.common.util.concurrent.Uninterruptibles;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,9 +11,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+
 import java.lang.reflect.Method;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class CommonOps extends Base {
     @BeforeClass
@@ -42,13 +42,7 @@ public class CommonOps extends Base {
     }
 
 
-    @Step("Login to Grafana")
-    public void login() {
-        login.setUsername("admin");
-        login.setPassword("12345");
-        login.submit();
-        Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
-    }
+
 
     @Step
     public void verifyLogin() {
