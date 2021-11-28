@@ -1,0 +1,1 @@
+{"uuid":"bed53880-35a3-4d9a-8a6d-56f727ee0d2d","name":"Web.Kuku","children":["5ad6ab97-54df-4793-90b3-ac508201298b"],"befores":[{"name":"start","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1638090601470,"stop":1638090605409}],"afters":[],"start":1638090601414,"stop":1638090605975}
