@@ -13,5 +13,5 @@ public class Base {
     protected static GrafanaPage grafanaPage;
     protected static String url = "http://localhost:3000";
     protected static Screen screen;
-    protected static String path = "//src/test/java/ImageRepository/";
+    protected static String path = "C:\\Users\\PC\\Documents\\GitHub\\HackathonJava\\src\\test\\java\\ImageRepository\\";
 }
