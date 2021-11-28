@@ -35,6 +35,12 @@ public class GrafanaPage {
     @FindBy(xpath = "//table/tbody/tr/td[2]/a")
     private List<WebElement> users_list;
 
+    @FindBy(css = "div>button.css-1r3qgdo-button")
+    WebElement btn_delete;
+
+    @FindBy(css = "div.css-1pvl9up-layoutChildrenWrapper>button.css-1r3qgdo-button")
+    WebElement btn_deleteConfirmation;
+
 
     @Step("Navigate to users page")
     public void usersMenu() {
@@ -50,13 +56,32 @@ public class GrafanaPage {
         btn_submit.click();
     }
 
-    @Step("Get List of Users")
-    public List<String> getUsersList() {
-        List<String> users = new ArrayList<>();
+    @Step("check if a given username is inside the list")
+    public boolean contains (String username) {
         for (WebElement user : users_list) {
-            users.add(user.getText());
+            if(user.getText().equals(username))
+            {
+                return true;
+            }
+
         }
-        return users;
+        return false;
+    }
+
+    @Step("Delete a user")
+    public void deleteUser(String userName) {
+       boolean flag = false;
+       for(int i=0;i<users_list.size();i++)
+           if (users_list.get(i).getText().equals(userName)) {
+               users_list.get(i).click();
+               btn_delete.click();
+               btn_deleteConfirmation.click();
+               flag = true;
+               break;
+           }
+       if (flag == false)
+        System.out.println("User name "+userName+" does not exist");
+
     }
 
 

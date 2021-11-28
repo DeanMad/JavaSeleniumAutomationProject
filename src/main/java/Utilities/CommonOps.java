@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.sikuli.script.Screen;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -25,6 +26,7 @@ public class CommonOps extends Base {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         login = PageFactory.initElements(driver, LoginPage.class);
         grafanaPage = PageFactory.initElements(driver, GrafanaPage.class);
+        screen = new Screen();
     }
 
     @BeforeMethod
