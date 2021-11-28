@@ -1,10 +1,8 @@
 package Utilities;
-
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import io.qameta.allure.Description;
 import org.testng.annotations.DataProvider;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,8 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExternalProvider {
-
     @DataProvider(name = "data-provider")
+    @Description("DataProvider: Get Object 'table' from CSV file")
+    public static Object[][] getDataObject(){
+        return getDataFromCSV("src/main/java/Utilities/Data.csv");
+    }
     @Description("Convert CSV into Object 'table'")
     public static Object[][] getDataFromCSV(String filePath){
         List<List<String>> csvData = readCSV(filePath);
@@ -27,7 +28,6 @@ public class ExternalProvider {
         }
         return data;
     }
-
     @Description("Read CSV from file path")
     public static List<List<String>> readCSV(String filePath) {
         List<List<String>> records = new ArrayList<>();
@@ -41,7 +41,4 @@ public class ExternalProvider {
         }
         return records;
     }
-
-
-
 }

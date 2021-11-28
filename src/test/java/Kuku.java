@@ -1,22 +1,27 @@
 import Utilities.CommonOps;
 import Utilities.ExternalProvider;
 import Workflow.GrafanaWeb.WF_Login;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import javax.xml.crypto.Data;
 
 //@Listeners(AutomationListeners.class)
 public class Kuku extends CommonOps {
     @Test
     public void test01() {
         WF_Login.login();
-        verifyLogin();
+        WF_Login.verifyLogin();
     }
 
-    @Test(dataProviderClass = ExternalProvider.class, dataProvider = "data-providerCSV")
-    public void test02() {
-        createUser("kuku3","kuku@e3mail.com","kukuser3","kukupass3");
+    @Test(dataProviderClass = ExternalProvider.class, dataProvider = "data-provider")
+    public void test02(String name, String email, String username, String password) {
 
+        WF_Login.createUser(name,email,username,password);
     }
 
-
+    @Test
+    public void test03() {
+    }
 }
 

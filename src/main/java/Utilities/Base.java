@@ -7,9 +7,9 @@ import Hackathon.PageObject.Web.GrafanaPage;
         import java.util.List;
 
 public class Base {
-    protected WebDriver driver;
+    protected static WebDriver driver;
     protected static LoginPage login;
-    protected GrafanaPage grafanaPage;
-    protected String url = "http://localhost:3000";
-    protected List<String> users;
+    protected static GrafanaPage grafanaPage;
+    protected static String url = "http://localhost:3000";
+    protected static List<String> users;
 }

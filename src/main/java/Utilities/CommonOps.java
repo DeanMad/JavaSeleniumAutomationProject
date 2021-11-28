@@ -44,23 +44,5 @@ public class CommonOps extends Base {
 
 
 
-    @Step
-    public void verifyLogin() {
-        Assert.assertEquals(driver.getTitle(), "Home - Grafana");
-    }
-
-    @Step
-    public void createUser(String name, String email, String username, String password) {
-        grafanaPage.usersMenu();
-        grafanaPage.createUser(name, email, username, password);
-        Assert.assertTrue(containsUser(username));
-    }
-
-    @Step("Check if a given user is contained in the list")
-    public boolean containsUser(String username) {
-        users = grafanaPage.getUsersList();
-        return users.contains(username);
-    }
-
 
 }
