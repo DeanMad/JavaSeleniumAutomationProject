@@ -43,10 +43,9 @@ public class GrafanaPage {
 
 
     @Step("Navigate to users page")
-    public void navigateToUsersMenu() {
+    public void usersMenu() {
         btn_users.click();
     }
-
     @Step("Navigate to create user form")
     public void createUser(String name, String email, String username, String password) {
         btn_createUserMenu.click();
@@ -59,7 +58,6 @@ public class GrafanaPage {
 
     @Step("check if a given username is inside the list")
     public boolean contains (String username) {
-        navigateToUsersMenu();
         for (WebElement user : users_list) {
             if(user.getText().equals(username))
             {
