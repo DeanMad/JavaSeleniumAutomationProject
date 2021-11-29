@@ -8,6 +8,7 @@ import org.sikuli.script.FindFailed;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 
+import java.sql.Time;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +34,7 @@ public class WF_Web extends CommonOps {
     public static void createUser(String name, String email, String username, String password) {
         grafanaPage.usersMenu();
         grafanaPage.createUser(name, email, username, password);
-        Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(1));
+        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         Assert.assertTrue(containsUser(username));
     }
 
@@ -46,7 +47,7 @@ public class WF_Web extends CommonOps {
     public static void deleteUser(String username) {
         grafanaPage.usersMenu();
         grafanaPage.deleteUser(username);
-        Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(1));
+        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         Assert.assertFalse(containsUser(username));
     }
 
@@ -66,7 +67,7 @@ public class WF_Web extends CommonOps {
         screen.click(path+"Preferences.png");
         screen.click(path+"Light.png");
         screen.click(path+"Save.png");
-        Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(1));
+        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
     }
 
     @Step ("Verify light mode")

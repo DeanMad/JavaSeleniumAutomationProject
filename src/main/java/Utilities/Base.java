@@ -1,5 +1,9 @@
 package Utilities;
 
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObject.DesktopCalc.CalculatorPage;
 import pageObject.WebGrafana.MainPage;
 import pageObject.WebGrafana.LoginPage;
 import io.restassured.path.json.JsonPath;
@@ -20,5 +24,9 @@ public class Base {
     protected static Response response;
     protected static JsonPath jp;
     protected static JSONObject params;
+    protected static WebDriverWait wait;
+    protected static DesiredCapabilities capabilities;
+    protected static String applicationSignature = "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App";
+    protected static CalculatorPage calculator;
 //    private WindowsDriver driver;
 }
