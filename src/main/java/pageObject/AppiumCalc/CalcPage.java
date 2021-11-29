@@ -4,6 +4,7 @@ import Utilities.UIActions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -73,6 +74,11 @@ public class CalcPage {
     @Step("Get Interest from  result")
     public String getInterest() {
         return UIActions.text(interestOnly);
+    }
+
+    @Step("Swipe Screen")
+    public void swipe() {
+        UIActions.swipeScreen(PointOption.point(1000,1000),PointOption.point(50,1000));
     }
 
 

@@ -11,5 +11,14 @@ public class CalcAppium extends CommonOps {
         WF_AppiumCalc.verifyRepaymentAndInterest();
     }
 
+    @Test
+    public void test02_verifyCalculatorSaveResults() {
+        WF_AppiumCalc.verifySaved();
+    }
+
+    @Test
+    public void test03_verifyDelete() {
+        WF_AppiumCalc.verifyDelete(1);
+    }
 
 }

@@ -1,35 +1,39 @@
 package Utilities;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class UIActions extends CommonOps{
+public class UIActions extends CommonOps {
 
-    @Step ("Click")
-    public static void click(WebElement elem){
+    @Step("Click")
+    public static void click(WebElement elem) {
         wait.until(ExpectedConditions.elementToBeClickable(elem));
         elem.click();
     }
 
 
-    @Step ("Click without waiting")
-    public static void clickNoWait(WebElement elem){
+    @Step("Click without waiting")
+    public static void clickNoWait(WebElement elem) {
         elem.click();
     }
 
-    @Step ("Updating text")
-    public static void updateText(WebElement elem, String text){
+    @Step("Updating text")
+    public static void updateText(WebElement elem, String text) {
         elem.sendKeys(text);
 
     }
 
-    @Step ("Check if a given text exists in a list")
+    @Step("Check if a given text exists in a list")
     public static boolean contains(String key, List<WebElement> list) {
         for (WebElement elem : list) {
             if (elem.getText().equals(key)) {
@@ -55,22 +59,55 @@ public class UIActions extends CommonOps{
             System.out.println("User name " + userName + " does not exist");
     }
 
-    @Step ("Get size of a list")
-    public int getListSize(List<WebElement> list) {
+    @Step("Get size of a list")
+    public static int getListSize(List<WebElement> list) {
         return list.size();
     }
 
-    @Step ("Get Text from element")
-    public static String text(WebElement elem){
+    @Step("Get Text from element")
+    public static String text(WebElement elem) {
         return elem.getText();
     }
 
-    @Step ("Confirm attribute of an element")
-    public static boolean clickedButtonStatus(WebElement element, String attribute, String value){
-        if(element.getAttribute(attribute).equals(value))
+    @Step("Confirm attribute of an element")
+    public static boolean clickedButtonStatus(WebElement element, String attribute, String value) {
+        if (element.getAttribute(attribute).equals(value))
             return true;
         else
             return false;
     }
 
+    @Step("Swipe Screen ")
+    //A function to swipe mobile screen
+    public static void swipeScreen(PointOption start, PointOption end) {
+        // Animation default time:
+        //  - Android: 300 ms
+        //  - iOS: 200 ms
+        // final value depends on your app and could be greater
+        final int ANIMATION_TIME = 200; // ms
+
+        final int PRESS_TIME = 200; // ms
+
+        // execute swipe using TouchAction
+        try {
+            new TouchAction(appiumDriver)
+                    .press(start)
+                    // a bit more reliable when we add small wait
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(PRESS_TIME)))
+                    .moveTo(end)
+                    .release().perform();
+        } catch (Exception e) {
+            System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
+            return;
+        }
+
+        // always allow swipe action to complete
+        try {
+            Thread.sleep(ANIMATION_TIME);
+        } catch (InterruptedException e) {
+        }
+    }
+
+
 }
+
