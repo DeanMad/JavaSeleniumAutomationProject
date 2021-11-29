@@ -34,6 +34,12 @@ public class CalcPage {
     @AndroidFindBy(xpath = "//*[@id='btnSave']")
     private WebElement saveBtn;
 
+    @AndroidFindBy(xpath = "//*[@id='tvRepayment']")
+    private WebElement repayment;
+
+    @AndroidFindBy(xpath = "//*[@id='tvInterestOnly']")
+    private WebElement interestOnly;
+
     @Step("Setting the amount")
     public void setAmount(String amount) {
         UIActions.updateText(amountField, amount);
@@ -53,9 +59,21 @@ public class CalcPage {
     public void calculate() {
         UIActions.clickNoWait(calculateBtn);
     }
+
     @Step("Saving")
     public void save() {
         UIActions.clickNoWait(saveBtn);
     }
+
+    @Step("Get Repayment from result")
+    public String getRepayment() {
+        return UIActions.text(repayment);
+    }
+
+    @Step("Get Interest from  result")
+    public String getInterest() {
+        return UIActions.text(interestOnly);
+    }
+
 
 }

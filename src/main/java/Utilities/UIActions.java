@@ -17,6 +17,7 @@ public class UIActions extends CommonOps{
         elem.click();
     }
 
+
     @Step ("Click without waiting")
     public static void clickNoWait(WebElement elem){
         elem.click();
@@ -57,6 +58,11 @@ public class UIActions extends CommonOps{
     @Step ("Get size of a list")
     public int getListSize(List<WebElement> list) {
         return list.size();
+    }
+
+    @Step ("Get Text from element")
+    public static String text(WebElement elem){
+        return elem.getText();
     }
 
     @Step ("Confirm attribute of an element")

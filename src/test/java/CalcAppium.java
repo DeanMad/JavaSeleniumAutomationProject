@@ -7,9 +7,9 @@ public class CalcAppium extends CommonOps {
 
     @Test
     public void test01_verifyCalculator() {
-        WF_AppiumCalc.calculateMonthlyPayments("10","10","2");
+        WF_AppiumCalc.calculateMonthlyPayments("10", "10", "2");
+        WF_AppiumCalc.verifyRepaymentAndInterest();
     }
-
 
 
 }
