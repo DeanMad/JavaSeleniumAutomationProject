@@ -5,7 +5,7 @@ import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
 //@Listeners(AutomationListeners.class)
-public class Kuku extends CommonOps {
+public class GrafanaWeb extends CommonOps {
     @Test
     public void test01() {
         WF_Web.login();

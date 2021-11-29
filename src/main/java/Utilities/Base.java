@@ -3,12 +3,12 @@ package Utilities;
 import Hackathon.PageObject.Web.GrafanaPage;
 import Hackathon.PageObject.Web.LoginPage;
 import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.sikuli.script.Screen;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 public class Base {

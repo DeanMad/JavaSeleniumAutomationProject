@@ -3,6 +3,7 @@ package Utilities;
 import Hackathon.PageObject.Web.GrafanaPage;
 import Hackathon.PageObject.Web.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.restassured.RestAssured;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.sikuli.script.Screen;
@@ -25,6 +26,9 @@ public class CommonOps extends Base {
         login = PageFactory.initElements(driver, LoginPage.class);
         grafanaPage = PageFactory.initElements(driver, GrafanaPage.class);
         screen = new Screen();
+        RestAssured.baseURI = url;
+        RestAssured.given();
+        request.header("Content-Type", "application/json");
     }
 
     @BeforeMethod
@@ -38,7 +42,7 @@ public class CommonOps extends Base {
 
     @AfterClass
     public void closeSession() {
-        //driver.quit();
+        driver.quit();
     }
 
 
