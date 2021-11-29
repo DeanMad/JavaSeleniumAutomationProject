@@ -1,5 +1,8 @@
 package Utilities;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.windows.WindowsDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,8 +32,8 @@ public class CommonOps extends Base {
     @BeforeClass
     public void startSession() throws MalformedURLException {
 
-        String platform = getData("Platform", 0);
-        String browser = getData("Browser", 0);
+        platform = getData("Platform", 0);
+        browser = getData("Browser", 0);
         if (platform.equals("web")) {
             switch (browser) {
                 case "chrome":
@@ -56,16 +59,20 @@ public class CommonOps extends Base {
             wait = new WebDriverWait(driver, 5);
             ManagePages.initWeb();
             screen = new Screen();
-        }
-        else if (platform.equals("api")) {
+        } else if (platform.equals("api")) {
             RestAssured.baseURI = url;
             RestAssured.given();
             //request.header("Content-Type", "application/json");
-        }
-        else if (platform.equals("electron")) {
+        } else if (platform.equals("appium")) {
+            capabilities = new DesiredCapabilities();
+            capabilities.setCapability(MobileCapabilityType.UDID, "ce051605b5d4d82c03");
+            capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.shivgadhia.android.ukMortgageCalc");
+            capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
+            appiumDriver = new AppiumDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
+            ManagePages.initAppium();
+        } else if (platform.equals("electron")) {
 
-        }
-        else if (platform.equals("desktop")) {
+        } else if (platform.equals("desktop")) {
 
             capabilities = new DesiredCapabilities();
             capabilities.setCapability("app", applicationSignature);
@@ -86,7 +93,14 @@ public class CommonOps extends Base {
 
     @AfterClass
     public void closeSession() {
-        driver.quit();
+
+        if (platform.equals("appium")) {
+            appiumDriver.quit();
+        } else if (!platform.equals("api")) {
+            driver.quit();
+        }
+        //todo if platform not equal to REST
+        //driver.quit();
     }
 
     private String getData(String nodeName, int index) {

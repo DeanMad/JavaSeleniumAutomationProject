@@ -2,6 +2,8 @@ package Utilities;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
+import pageObject.AppiumCalc.CalcPage;
+import pageObject.AppiumCalc.CalcSavedPage;
 import pageObject.DesktopCalc.CalculatorPage;
 import pageObject.WebGrafana.LoginPage;
 import pageObject.WebGrafana.MainPage;
@@ -20,8 +22,9 @@ public class ManagePages extends Base {
     }
 
     @Step ("Initiate appium")
-    public static void appium() {
-
+    public static void initAppium() {
+        ukCalc=new CalcPage(appiumDriver);
+        ukCalcSave=new CalcSavedPage(appiumDriver);
     }
 
     @Step ("Initiate electron")

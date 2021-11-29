@@ -25,6 +25,7 @@ public class UIActions extends CommonOps{
     @Step ("Updating text")
     public static void updateText(WebElement elem, String text){
         elem.sendKeys(text);
+
     }
 
     @Step ("Check if a given text exists in a list")
