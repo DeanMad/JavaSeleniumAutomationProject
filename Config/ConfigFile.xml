@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
 <Enviroment>
 
     <Platform>web</Platform>
     <Browser>firefox</Browser>
-
 
 </Enviroment>

@@ -12,19 +12,24 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.lang.reflect.Method;
 import java.time.Duration;
+import org.w3c.dom.Document;
 
 public class CommonOps extends Base {
     @BeforeClass
     public void startSession() {
 
-        // paltform = getData("Platform");
+
+        // platform = getData("Platform");
         // if ( platform == "web" {
         // Do web stuff
-    // else if (platform == "aipi")
+        // else if (platform == "api")
 
-
+        String platform = getData("Platform", 0);
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -53,6 +58,20 @@ public class CommonOps extends Base {
         driver.quit();
     }
 
+    private String getData(String nodeName, int index) {
+        DocumentBuilder dBuilder;
+        Document doc = null;
+        File fXmlFile = new File("Config/ConfigFile.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        try {
+            dBuilder = dbFactory.newDocumentBuilder();
+            doc = dBuilder.parse(fXmlFile);
+        } catch (Exception e) {
+            System.out.println("Exception in reading XML file: " + e);
+        }
+        doc.getDocumentElement().normalize();
+        return doc.getElementsByTagName(nodeName).item(index).getTextContent();
+    }
 
 
 
