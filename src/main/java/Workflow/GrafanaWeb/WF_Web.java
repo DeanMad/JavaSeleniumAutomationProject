@@ -3,13 +3,9 @@ package Workflow.GrafanaWeb;
 import Utilities.CommonOps;
 import com.google.common.util.concurrent.Uninterruptibles;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
 import org.sikuli.script.FindFailed;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 
-import java.sql.Time;
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
@@ -21,7 +17,6 @@ public class WF_Web extends CommonOps {
         login.setUsername("admin");
         login.setPassword("12345");
         login.submit();
-        Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
     }
 
 
@@ -34,7 +29,6 @@ public class WF_Web extends CommonOps {
     public static void createUser(String name, String email, String username, String password) {
         grafanaPage.usersMenu();
         grafanaPage.createUser(name, email, username, password);
-        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         Assert.assertTrue(containsUser(username));
     }
 
@@ -47,7 +41,6 @@ public class WF_Web extends CommonOps {
     public static void deleteUser(String username) {
         grafanaPage.usersMenu();
         grafanaPage.deleteUser(username);
-        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         Assert.assertFalse(containsUser(username));
     }
 

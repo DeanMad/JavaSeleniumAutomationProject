@@ -1,7 +1,11 @@
 package pageObject.WebGrafana;
 
+import Utilities.UIActions;
+import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginPage {
 
@@ -15,14 +19,16 @@ public class LoginPage {
     private WebElement login_btn;
 
     public void setUsername(String username) {
-        username_input_field.sendKeys(username);
+        UIActions.updateText(username_input_field, username);
     }
 
+
     public void setPassword(String password) {
-        password_input_field.sendKeys(password);
+        UIActions.updateText(password_input_field, password);
     }
 
     public void submit() {
-        login_btn.click();
+        UIActions.click(login_btn);
+        Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
     }
 }

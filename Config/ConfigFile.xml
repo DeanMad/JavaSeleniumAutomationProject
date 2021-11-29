@@ -3,6 +3,6 @@
 <Enviroment>
 
     <Platform>web</Platform>
-    <Browser>opera</Browser>
+    <Browser>chrome</Browser>
 
 </Enviroment>
