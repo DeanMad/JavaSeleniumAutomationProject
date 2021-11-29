@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
-public class WF_Login extends CommonOps {
+public class WF_Web extends CommonOps {
 
 
     @Step("Login to Grafana")
