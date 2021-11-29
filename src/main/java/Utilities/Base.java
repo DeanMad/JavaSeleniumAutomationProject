@@ -5,6 +5,7 @@ import Hackathon.PageObject.Web.GrafanaPage;
         import org.openqa.selenium.WebDriver;
 import org.sikuli.script.Screen;
 
+import javax.xml.ws.Response;
 import java.util.List;
 
 public class Base {
@@ -13,5 +14,7 @@ public class Base {
     protected static GrafanaPage grafanaPage;
     protected static String url = "http://localhost:3000";
     protected static Screen screen;
-    protected static String path = "//src/test/java/ImageRepository/";
+    protected static String path = "C:\\Users\\PC\\Desktop\\automation\\Images\\";
+    
+    protected static Response response;
 }

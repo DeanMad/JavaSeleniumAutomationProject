@@ -50,12 +50,28 @@ public class WF_Login extends CommonOps {
         Assert.assertFalse(containsUser(username));
     }
 
+
+    @Step("Verify user exists")
+    public static void verifyUserExists(String username)
+    {
+        grafanaPage.usersMenu();
+        grafanaPage.search(username);
+        Assert.assertTrue(containsUser(username));
+    }
+
     @Step ("Changing theme with sikuli")
-    public static void changeTheme() throws FindFailed {
+    public static void changeThemeToLightMode() throws FindFailed {
         screen.click(path+"Settingbtn.png");
+        screen.hover(path+"Configuration.png");
         screen.click(path+"Preferences.png");
         screen.click(path+"Light.png");
         screen.click(path+"Save.png");
+        Uninterruptibles.sleepUninterruptibly(Duration.ofSeconds(1));
+    }
+
+    @Step ("Verify light mode")
+    public static void verifyLightMode() {
+        Assert.assertTrue(grafanaPage.clickedButtonStatus());
     }
 }
 
