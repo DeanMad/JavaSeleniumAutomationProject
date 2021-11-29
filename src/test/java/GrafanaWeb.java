@@ -1,5 +1,5 @@
 import Utilities.CommonOps;
-import Utilities.ExternalProvider;
+import Utilities.DDT;
 import Workflow.GrafanaWeb.WF_Web;
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
@@ -12,7 +12,7 @@ public class GrafanaWeb extends CommonOps {
         WF_Web.verifyLogin();
     }
 
-    @Test(dataProviderClass = ExternalProvider.class, dataProvider = "data-provider")
+    @Test(dataProviderClass = DDT.class, dataProvider = "data-provider")
     public void test02(String name, String email, String username, String password) {
         WF_Web.createUser(name,email,username,password);
     }

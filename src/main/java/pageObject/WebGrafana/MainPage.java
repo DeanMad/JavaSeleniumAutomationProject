@@ -1,17 +1,12 @@
-package Hackathon.PageObject.Web;
+package pageObject.WebGrafana;
 
-import com.google.common.util.concurrent.Uninterruptibles;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.DataProvider;
 
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
-public class GrafanaPage {
+public class MainPage {
 
     @FindBy(xpath = "//*[@id='reactRoot']/div/nav/div[2]/div[7]/a")
     private WebElement btn_users;

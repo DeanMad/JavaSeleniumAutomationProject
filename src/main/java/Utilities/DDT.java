@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ExternalProvider {
+public class DDT {
     @DataProvider(name = "data-provider")
     @Description("DataProvider: Get Object 'table' from CSV file")
     public static Object[][] getDataObject(){

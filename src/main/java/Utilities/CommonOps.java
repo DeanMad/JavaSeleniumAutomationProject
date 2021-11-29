@@ -1,7 +1,7 @@
 package Utilities;
 
-import Hackathon.PageObject.Web.GrafanaPage;
-import Hackathon.PageObject.Web.LoginPage;
+import pageObject.WebGrafana.MainPage;
+import pageObject.WebGrafana.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.RestAssured;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,13 +18,21 @@ import java.time.Duration;
 public class CommonOps extends Base {
     @BeforeClass
     public void startSession() {
+
+        // paltform = getData("Platform");
+        // if ( platform == "web" {
+        // Do web stuff
+    // else if (platform == "aipi")
+
+
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         login = PageFactory.initElements(driver, LoginPage.class);
-        grafanaPage = PageFactory.initElements(driver, GrafanaPage.class);
+        grafanaPage = PageFactory.initElements(driver, MainPage.class);
         screen = new Screen();
         RestAssured.baseURI = url;
         RestAssured.given();
