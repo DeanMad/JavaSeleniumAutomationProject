@@ -1,8 +1,8 @@
 package Utilities;
 
 import Hackathon.PageObject.Web.GrafanaPage;
-        import Hackathon.PageObject.Web.LoginPage;
-        import org.openqa.selenium.WebDriver;
+import Hackathon.PageObject.Web.LoginPage;
+import org.openqa.selenium.WebDriver;
 import org.sikuli.script.Screen;
 
 import java.util.List;
@@ -13,5 +13,5 @@ public class Base {
     protected static GrafanaPage grafanaPage;
     protected static String url = "http://localhost:3000";
     protected static Screen screen;
-    protected static String path = "//src/test/java/ImageRepository/";
+    protected static String path = "C:\\Automation\\HackathonJava\\src\\test\\java\\ImageRepository";
 }

@@ -52,10 +52,10 @@ public class WF_Login extends CommonOps {
 
     @Step ("Changing theme with sikuli")
     public static void changeTheme() throws FindFailed {
-        screen.click(path+"Settingbtn.png");
-        screen.click(path+"Preferences.png");
-        screen.click(path+"Light.png");
-        screen.click(path+"Save.png");
+        screen.click(path+"/Settingbtn.png");
+        screen.click(path+"/Preferences.png");
+        screen.click(path+"/Light.png");
+        screen.click(path+"/Save.png");
     }
 }
 
