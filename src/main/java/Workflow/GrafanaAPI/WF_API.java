@@ -27,14 +27,14 @@ public class WF_API extends CommonOps {
 
     @Step()
     public static void updateEmail(String id, String email) {
-        System.out.println("Change Email Result:");
-        System.out.println(APIMethods.changeEmail(id, email));
+        Assert.assertTrue(APIMethods.changeEmail(id, email).contains("User updated"));
     }
 
     @Step()
     public static void login(String username, String password) {
-        System.out.println(APIMethods.login(username, password));
-    }
 
+        Assert.assertTrue(APIMethods.login(username, password).contains("Logged in"));
+
+    }
 
 }
