@@ -4,14 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RemoteDB {
-    static String dbUrl = "jdbc:mysql://remotemysql.com:3306/o51EvpDF5Z";
-    static String username = "o51EvpDF5Z";
-    static String password = "ZvjcsQ9714";
-    static ResultSet rs;
-    static Connection con;
-    static Statement stmt;
-
+public class RemoteDB extends CommonOps{
     public static void initSQLConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -42,12 +35,12 @@ public class RemoteDB {
             return rs.getString(1);
         }
         catch(SQLException e) {
-            System.out.println("Error Occured While Printing Table Data, See Details: " + e);
+            System.out.println("Error occurred while printing table data, see details: " + e);
         }
         return "";
     }
 
-    public void closeDBCon() {
+    public static void closeDBCon() {
         try {
             con.close();
         }

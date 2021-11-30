@@ -2,7 +2,7 @@
 
 <Enviroment>
 
-    <Platform>web</Platform>
+    <Platform>api</Platform>
     <Browser>chrome</Browser>
 
 </Enviroment>

@@ -1,12 +1,14 @@
 import Utilities.CommonOps;
 import Utilities.DDT;
 import Workflow.GrafanaWeb.WF_Web;
+import io.qameta.allure.Description;
 import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
 //@Listeners(AutomationListeners.class)
 public class GrafanaWeb extends CommonOps {
-    @Test
+    @Test (description = "Login with DB")
+    @Description ("Login with DB")
     public void test01() {
         WF_Web.login();
         WF_Web.verifyLogin();

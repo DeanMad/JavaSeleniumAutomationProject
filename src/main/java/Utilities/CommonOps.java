@@ -62,7 +62,7 @@ public class CommonOps extends Base {
             RemoteDB.initSQLConnection();
         } else if (platform.equals("api")) {
             RestAssured.baseURI = url;
-            RestAssured.given();
+            request=RestAssured.given();
             request.header("Content-Type", "application/json");
         } else if (platform.equals("appium")) {
             capabilities = new DesiredCapabilities();
@@ -95,13 +95,19 @@ public class CommonOps extends Base {
     @AfterClass
     public void closeSession() {
 
-        if (platform.equals("appium")) {
-            appiumDriver.quit();
-        } else if (!platform.equals("api")) {
-            driver.quit();
+        switch (platform){
+            case "appium":
+                appiumDriver.quit();
+                break;
+            case "web":
+                driver.quit();
+                RemoteDB.closeDBCon();
+            case "api":
+                break;
+            default:
+                driver.quit();
+                break;
         }
-        //todo if platform not equal to REST
-        //driver.quit();
     }
 
     private String getData(String nodeName, int index) {

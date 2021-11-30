@@ -129,13 +129,6 @@ public class UIActions extends CommonOps {
         return response;
     }
 
-    @Step("Delete request")
-    protected static Response deleteRequest(String requestPath, String id, JSONObject jsonObject) {
-        request.body(jsonObject.toJSONString());
-        response = request.delete(requestPath + id);
-        return response;
-    }
-
     @Step("Put request")
     protected static Response putRequest(String requestPath,String id, JSONObject jsonObject) {
         request.body(jsonObject.toJSONString());
