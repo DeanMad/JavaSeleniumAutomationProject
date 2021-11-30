@@ -10,7 +10,9 @@ public class APIMethods extends CommonOps {
 @Step ("Get list by key")
     public static List<String> getlistByKey(String key){
     response = UIActions.getRequest(pathGet);
-    if(response.getStatusCode() == 200) {
+    response.prettyPrint();
+    System.out.println(response.getHeaders());
+    if(response.getStatusCode() == 201) {
         jp = response.jsonPath();
         return jp.getList("." + key);
     }
@@ -37,6 +39,7 @@ public class APIMethods extends CommonOps {
     public static String changeEmail(String id,String email){
         params = new JSONObject();
         params.put("email",email);
+        params.put("Authorization","Basic eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk");
         return UIActions.putRequest(pathGet, id, params).body().asString();
     }
 

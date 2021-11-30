@@ -58,6 +58,7 @@ public class CalculatorPage {
     @FindBy(how = How.XPATH, using = "//*[@AutomationId='CalculatorResults']")
     private WebElement result;
 
+
     public String getResult() {
         String temp=result.getText();
         String[] extractNumber=temp.split(" ");

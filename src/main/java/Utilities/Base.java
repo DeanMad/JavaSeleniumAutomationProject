@@ -37,9 +37,9 @@ public class Base {
     protected static JsonPath jp;
     protected static JSONObject params;
     protected static WebDriverWait wait;
-    protected final static String pathGet = "api/users/";
+    protected final static String pathGet = "/api/users/";
     protected final static String pathPost= "/login/";
-    protected final static String pathPut = "api/users/";
+    protected final static String pathPut = "/api/users/";
     protected final static String pathDelete = "";
 
 
