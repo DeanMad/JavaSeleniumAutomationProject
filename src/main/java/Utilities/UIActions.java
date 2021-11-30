@@ -7,6 +7,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,8 +33,13 @@ public class UIActions extends CommonOps {
     @Step("Updating text")
     public static void updateText(WebElement elem, String text) {
         elem.sendKeys(text);
-
     }
+
+    @Step("Keyboard Keys on input field")
+    public static void keyboardKey(WebElement elem, Keys key) {
+        elem.sendKeys(key);
+    }
+
 
     @Step("Check if a given text exists in a list")
     public static boolean contains(String key, List<WebElement> list) {
@@ -43,6 +49,16 @@ public class UIActions extends CommonOps {
             }
         }
         return false;
+    }
+
+    @Step("return the index of a given item,if it doesn't exit return -1")
+    public static int getIndex(String item, List<WebElement> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getText().equals(item)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Step("Delete a user")
@@ -60,6 +76,30 @@ public class UIActions extends CommonOps {
         if (flag == false)
             System.out.println("User name " + userName + " does not exist");
     }
+
+    @Step("highlight a text inside a given element ")
+    public static void moveToElement(WebElement elem)
+    {
+        action.moveToElement(elem).build().perform();
+        action.build().perform();
+    }
+
+    @Step("highlight a text inside a given element ")
+    public static void highlightTextInsideElement(WebElement elem,int index)
+    {
+        action.click(elem).doubleClick().doubleClick();
+        action.build().perform();
+    }
+
+    @Step("highlight a text inside a given element ")
+    public static void updateTextUsingActions(String text)
+    {
+        action.sendKeys(text).sendKeys(Keys.ENTER).build().perform();
+        action.build().perform();
+    }
+
+
+
 
     @Step("Get size of a list")
     public static int getListSize(List<WebElement> list) {

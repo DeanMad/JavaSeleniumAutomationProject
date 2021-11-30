@@ -1,11 +1,14 @@
 package Utilities;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.AppiumCalc.CalcPage;
 import pageObject.AppiumCalc.CalcSavedPage;
 import pageObject.DesktopCalc.CalculatorPage;
+import pageObject.ElectronToDo.ToDoPage;
 import pageObject.WebGrafana.MainPage;
 import pageObject.WebGrafana.LoginPage;
 import io.restassured.path.json.JsonPath;
@@ -38,10 +41,15 @@ public class Base {
     protected static JSONObject params;
     protected static WebDriverWait wait;
     protected final static String pathGet = "/api/users/";
-    protected final static String pathPost= "/login/";
-    protected final static String pathPut = "/api/users/";
-    protected final static String pathDelete = "";
+    protected final static String pathPost = "/login/";
 
+    //Electron
+    protected static Actions action;
+    protected static ChromeOptions opt;
+    protected static String electPropertyKey = "webdriver.chrome.driver";
+    protected static String electPropertyValue = "C:\\Automation\\ElectronDriver\\electrondriver.exe";
+    protected static String applicationPath = "C:\\Users\\Sgnv\\AppData\\Local\\Programs\\todolist\\Todolist.exe";
+    protected static ToDoPage todo;
 
     //Appium
     protected static DesiredCapabilities capabilities;
@@ -54,7 +62,7 @@ public class Base {
     //Desktop
     protected static CalculatorPage calculator;
     protected static String platform;
-    protected static  String browser;
+    protected static String browser;
 
     //DB
     protected static String dbUrl = "jdbc:mysql://remotemysql.com:3306/o51EvpDF5Z";

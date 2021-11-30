@@ -37,7 +37,6 @@ public class APIMethods extends CommonOps {
     public static String changeEmail(String id,String email){
         params = new JSONObject();
         params.put("email",email);
-        params.put("Authorization","Basic eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk");
         return UIActions.putRequest(pathGet, id, params).body().asString();
     }
 

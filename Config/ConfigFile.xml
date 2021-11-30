@@ -2,7 +2,7 @@
 
 <Enviroment>
 
-    <Platform>api</Platform>
+    <Platform>electron</Platform>
     <Browser>chrome</Browser>
 
 </Enviroment>

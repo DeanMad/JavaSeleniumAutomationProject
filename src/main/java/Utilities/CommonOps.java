@@ -5,8 +5,10 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.windows.WindowsDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.RestAssured;
@@ -144,7 +146,16 @@ public class CommonOps extends Base {
 
     @Step("A function to initialize the Electron session ")
     private void electron_init() {
-
+        System.setProperty(electPropertyKey,electPropertyValue);
+        opt=new ChromeOptions();
+        opt.setBinary(applicationPath);
+        capabilities=new DesiredCapabilities();
+        capabilities.setCapability("chromeOptions",opt);
+        capabilities.setBrowserName("chrome");
+        driver=new ChromeDriver(capabilities);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        action=new Actions(driver);
+        ManagePages.initElectron();
     }
 
     private String getData(String nodeName, int index) {

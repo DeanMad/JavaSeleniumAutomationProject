@@ -8,7 +8,6 @@ public class GrafanaAPI extends CommonOps {
 
     @Test
     public void test01_verifyList(){
-        WF_API.login("admin","12345");
         WF_API.getListByKey("name");
     }
 
