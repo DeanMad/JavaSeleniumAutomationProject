@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.windows.WindowsDriver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
@@ -31,55 +32,25 @@ import org.w3c.dom.Document;
 public class CommonOps extends Base {
     @BeforeClass
     public void startSession() throws MalformedURLException {
-
         platform = getData("Platform", 0);
         browser = getData("Browser", 0);
-        if (platform.equals("web")) {
-            switch (browser) {
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    break;
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-                case "edge":
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    break;
-                case "opera":
-                    WebDriverManager.operadriver().setup();
-                    driver = new OperaDriver();
-                    break;
-            }
-            driver.manage().window().maximize();
-            driver.get(url);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            wait = new WebDriverWait(driver, 5);
-            ManagePages.initWeb();
-            screen = new Screen();
-            RemoteDB.initSQLConnection();
-        } else if (platform.equals("api")) {
-            RestAssured.baseURI = url;
-            request=RestAssured.given();
-            request.header("Content-Type", "application/json");
-        } else if (platform.equals("appium")) {
-            capabilities = new DesiredCapabilities();
-            capabilities.setCapability(MobileCapabilityType.UDID, deviceSignature);
-            capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
-            capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, appActivity);
-            appiumDriver = new AppiumDriver<>(new URL(applicationServer), capabilities);
-            ManagePages.initAppium();
-        } else if (platform.equals("electron")) {
-
-        } else if (platform.equals("desktop")) {
-
-            capabilities = new DesiredCapabilities();
-            capabilities.setCapability("app", applicationSignature);
-            driver = new WindowsDriver(new URL(applicationServer), capabilities);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            ManagePages.initDesktop();
+        switch (platform) {
+            case "web":
+                casesSwitch();
+                web_init();
+                break;
+            case "api":
+                api_init();
+                break;
+            case "appium":
+                appium_init();
+                break;
+            case "electron":
+                electron_init();
+                break;
+            case "desktop":
+                desktop_init();
+                break;
         }
     }
 
@@ -95,7 +66,7 @@ public class CommonOps extends Base {
     @AfterClass
     public void closeSession() {
 
-        switch (platform){
+        switch (platform) {
             case "appium":
                 appiumDriver.quit();
                 break;
@@ -108,6 +79,72 @@ public class CommonOps extends Base {
                 driver.quit();
                 break;
         }
+    }
+
+
+    @Step("Switch Cases according to platform")
+    private void casesSwitch() {
+        switch (browser) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            case "opera":
+                WebDriverManager.operadriver().setup();
+                driver = new OperaDriver();
+                break;
+        }
+    }
+
+
+    @Step("A function to initialize the web session ")
+    private void web_init() {
+        driver.manage().window().maximize();
+        driver.get(url);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
+        ManagePages.initWeb();
+        screen = new Screen();
+        RemoteDB.initSQLConnection();
+    }
+
+    @Step("A function to initialize the Api session ")
+    private void api_init() {
+        RestAssured.baseURI = url;
+        request = RestAssured.given().auth().preemptive().basic("admin", "12345");
+        request.header("Content-Type", "application/json");
+    }
+
+    @Step("A function to initialize the Appium session ")
+    private void appium_init() throws MalformedURLException {
+        capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.UDID, deviceSignature);
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, appActivity);
+        appiumDriver = new AppiumDriver<>(new URL(applicationServer), capabilities);
+        ManagePages.initAppium();
+    }
+
+    @Step("A function to initialize the Desktop session ")
+    private void desktop_init() throws MalformedURLException {
+        capabilities = new DesiredCapabilities();
+        capabilities.setCapability("app", applicationSignature);
+        driver = new WindowsDriver(new URL(applicationServer), capabilities);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        ManagePages.initDesktop();
+    }
+
+    @Step("A function to initialize the Electron session ")
+    private void electron_init() {
+
     }
 
     private String getData(String nodeName, int index) {

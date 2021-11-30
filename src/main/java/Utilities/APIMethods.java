@@ -10,11 +10,9 @@ public class APIMethods extends CommonOps {
 @Step ("Get list by key")
     public static List<String> getlistByKey(String key){
     response = UIActions.getRequest(pathGet);
-    response.prettyPrint();
-    System.out.println(response.getHeaders());
-    if(response.getStatusCode() == 201) {
+    if(response.getStatusCode() == 200) {
         jp = response.jsonPath();
-        return jp.getList("." + key);
+        return jp.getList(key);
     }
     return null;
 }

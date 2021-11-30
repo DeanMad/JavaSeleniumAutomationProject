@@ -14,7 +14,7 @@ public class GrafanaAPI extends CommonOps {
 
     @Test
     public void test02_verifyUserExist(){
-     WF_API.verifyID("68");
+    WF_API.verifyID("68");
 
     }
 

@@ -11,7 +11,6 @@ import java.util.List;
 
 public class WF_API extends CommonOps {
 
-
     @Step("Get a list by key")
     public static void getListByKey(String key) {
         List<String> list = APIMethods.getlistByKey("name");
