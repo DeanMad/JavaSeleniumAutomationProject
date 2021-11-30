@@ -1,6 +1,7 @@
 package Workflow.GrafanaWeb;
 
 import Utilities.CommonOps;
+import Utilities.RemoteDB;
 import com.google.common.util.concurrent.Uninterruptibles;
 import io.qameta.allure.Step;
 import org.sikuli.script.FindFailed;
@@ -14,8 +15,8 @@ public class WF_Web extends CommonOps {
 
     @Step("Login to Grafana")
     public static void login() {
-        login.setUsername("admin");
-        login.setPassword("12345");
+        login.setUsername(RemoteDB.getUsername());
+        login.setPassword(RemoteDB.getPassword());
         login.submit();
     }
 

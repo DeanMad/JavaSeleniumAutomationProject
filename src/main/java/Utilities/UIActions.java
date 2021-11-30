@@ -5,6 +5,8 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
+import io.restassured.response.Response;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -108,6 +110,38 @@ public class UIActions extends CommonOps {
         }
     }
 
+    @Step("Get request")
+    protected static Response getRequest(String requestPath) {
+        response = request.get(requestPath);
+        return response;
+    }
+
+    @Step("Get request with id")
+    protected static Response getRequestID(String requestPath, String id) {
+        response = request.get(requestPath + id);
+        return response;
+    }
+
+    @Step("Post request")
+    protected static Response postRequest(String requestPath, JSONObject jsonObject) {
+        request.body(jsonObject.toJSONString());
+        response = request.post(requestPath);
+        return response;
+    }
+
+    @Step("Delete request")
+    protected static Response deleteRequest(String requestPath, String id, JSONObject jsonObject) {
+        request.body(jsonObject.toJSONString());
+        response = request.delete(requestPath + id);
+        return response;
+    }
+
+    @Step("Put request")
+    protected static Response putRequest(String requestPath,String id, JSONObject jsonObject) {
+        request.body(jsonObject.toJSONString());
+        response = request.put(requestPath+ id);
+        return response;
+    }
 
 }
 

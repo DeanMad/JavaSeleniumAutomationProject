@@ -59,16 +59,17 @@ public class CommonOps extends Base {
             wait = new WebDriverWait(driver, 5);
             ManagePages.initWeb();
             screen = new Screen();
+            RemoteDB.initSQLConnection();
         } else if (platform.equals("api")) {
             RestAssured.baseURI = url;
             RestAssured.given();
-            //request.header("Content-Type", "application/json");
+            request.header("Content-Type", "application/json");
         } else if (platform.equals("appium")) {
             capabilities = new DesiredCapabilities();
-            capabilities.setCapability(MobileCapabilityType.UDID, "ce051605b5d4d82c03");
-            capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.shivgadhia.android.ukMortgageCalc");
-            capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
-            appiumDriver = new AppiumDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
+            capabilities.setCapability(MobileCapabilityType.UDID, deviceSignature);
+            capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
+            capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, appActivity);
+            appiumDriver = new AppiumDriver<>(new URL(applicationServer), capabilities);
             ManagePages.initAppium();
         } else if (platform.equals("electron")) {
 
@@ -76,7 +77,7 @@ public class CommonOps extends Base {
 
             capabilities = new DesiredCapabilities();
             capabilities.setCapability("app", applicationSignature);
-            driver = new WindowsDriver(new URL("http://127.0.0.1:4723"), capabilities);
+            driver = new WindowsDriver(new URL(applicationServer), capabilities);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             ManagePages.initDesktop();
         }

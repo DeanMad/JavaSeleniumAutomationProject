@@ -38,6 +38,4 @@ public class WF_AppiumCalc extends CommonOps {
         int newSize = ukCalcSave.getListSize();
         Assert.assertTrue(newSize <= currentSize);
     }
-
-
 }

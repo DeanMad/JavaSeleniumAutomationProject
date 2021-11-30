@@ -1,6 +1,8 @@
 package Workflow.GrafanaAPI;
 
-public class WF_API  {
+import Utilities.CommonOps;
+
+public class WF_API extends CommonOps {
 
 
 
