@@ -8,8 +8,7 @@
   <test name="Electron" parallel="false">
     <parameter name="Platform" value="electron"></parameter>
     <parameter name="Browser" value="chrome"></parameter>
-
-      <classes>
+    <classes>
         <class name="TodoElectron"></class>
     </classes>
   </test> <!-- Test -->

@@ -8,8 +8,7 @@
   <test name="Desktop" parallel="false">
     <parameter name="Platform" value="desktop"></parameter>
     <parameter name="Browser" value="chrome"></parameter>
-
-      <classes>
+    <classes>
         <class name="CalcDesktop"></class>
     </classes>
   </test> <!-- Test -->

@@ -4,20 +4,21 @@
   <listeners>
     <listener class-name="Utilities.AutomationListeners"/>
   </listeners>
-  <test thread-count="5" verbose="0" name="Electron(failed)">
-    <parameter name="Platform" value="electron"/>
+  <test thread-count="5" verbose="0" name="Desktop(failed)">
+    <parameter name="Platform" value="desktop"/>
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="TodoElectron">
+      <class name="CalcDesktop">
         <methods>
-          <include name="test01_verifyCreateTask"/>
+          <include name="test01_verifyDivide"/>
+          <include name="test01_verifyMultiply"/>
           <include name="beforeMethod"/>
-          <include name="test02_verifyEditTask"/>
+          <include name="test02_verifySubtract"/>
+          <include name="test01_verifyAdd"/>
           <include name="closeSession"/>
-          <include name="test03_verifyDeleteTask"/>
           <include name="startSession"/>
         </methods>
-      </class> <!-- TodoElectron -->
+      </class> <!-- CalcDesktop -->
     </classes>
-  </test> <!-- Electron(failed) -->
+  </test> <!-- Desktop(failed) -->
 </suite> <!-- Failed suite [Suite] -->

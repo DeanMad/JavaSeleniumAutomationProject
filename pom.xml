@@ -165,7 +165,7 @@
     </build>
         </profile>
         <profile>
-        <id>Electron</id>
+        <id>Api</id>
     <build>
         <plugins>
             <plugin>
@@ -185,7 +185,7 @@
     </build>
         </profile>
         <profile>
-            <id>Electron</id>
+            <id>Web</id>
             <build>
                 <plugins>
                     <plugin>
@@ -205,7 +205,7 @@
             </build>
         </profile>
         <profile>
-            <id>Electron</id>
+            <id>Desktop</id>
             <build>
                 <plugins>
                     <plugin>
@@ -225,7 +225,7 @@
             </build>
         </profile>
         <profile>
-            <id>Electron</id>
+            <id>Appium</id>
             <build>
                 <plugins>
                     <plugin>

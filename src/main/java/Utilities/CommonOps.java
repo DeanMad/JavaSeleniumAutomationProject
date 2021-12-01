@@ -35,7 +35,7 @@ import org.w3c.dom.Document;
 public class CommonOps extends Base {
     @BeforeClass
     @Parameters({"Platform","Browser"})
-    public void startSession(String platform,String browser) throws MalformedURLException {
+    public void startSession(String platform,String browser) throws Exception {
         switch (platform) {
             case "web":
                 casesSwitch(browser);
@@ -53,11 +53,14 @@ public class CommonOps extends Base {
             case "desktop":
                 desktop_init();
                 break;
+            default: throw new Exception("Invalid platform");
         }
     }
 
     @BeforeMethod
-    public void beforeMethod(Method method) {
+    @Parameters({"Platform"})
+    public void beforeMethod(String platform, Method method) {
+        if(!(platform.equals("api")))
         try {
             MonteScreenRecorder.startRecord(method.getName());
         } catch (Exception e) {
@@ -85,7 +88,7 @@ public class CommonOps extends Base {
 
 
     @Step("Switch Cases according to platform")
-    private void casesSwitch(String browser) {
+    private void casesSwitch(String browser) throws Exception {
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -103,12 +106,16 @@ public class CommonOps extends Base {
                 WebDriverManager.operadriver().setup();
                 driver = new OperaDriver();
                 break;
+            default: throw new Exception("Invalid browser");
         }
     }
 
 
     @Step("A function to initialize the web session ")
     private void web_init() {
+        initURL();
+        path = getData("path");
+        initDBVariables();
         driver.manage().window().maximize();
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -120,6 +127,10 @@ public class CommonOps extends Base {
 
     @Step("A function to initialize the Api session ")
     private void api_init() {
+        initURL();
+        pathGet = getData("pathGet");
+        pathPost = getData("pathPost");
+        initDBVariables();
         RemoteDB.initSQLConnection();
         RestAssured.baseURI = url;
         request = RestAssured.given().auth().preemptive().basic(RemoteDB.getUsername(), RemoteDB.getPassword());
@@ -128,6 +139,10 @@ public class CommonOps extends Base {
 
     @Step("A function to initialize the Appium session ")
     private void appium_init() throws MalformedURLException {
+        deviceSignature = getData("deviceSignature");
+        appPackage = getData("appPackage");
+        appActivity = getData("appActivity");
+        applicationServer = getData("applicationServer");
         capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.UDID, deviceSignature);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
@@ -138,6 +153,8 @@ public class CommonOps extends Base {
 
     @Step("A function to initialize the Desktop session ")
     private void desktop_init() throws MalformedURLException {
+        applicationSignature = getData("applicationSignature");
+        applicationServer = getData("applicationServer");
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("app", applicationSignature);
         driver = new WindowsDriver(new URL(applicationServer), capabilities);
@@ -147,6 +164,9 @@ public class CommonOps extends Base {
 
     @Step("A function to initialize the Electron session ")
     private void electron_init() {
+        electPropertyKey = getData("electPropertyKey");
+        electPropertyValue = getData("electPropertyValue");
+        applicationPath = getData("applicationPath");
         System.setProperty(electPropertyKey,electPropertyValue);
         opt=new ChromeOptions();
         opt.setBinary(applicationPath);
@@ -159,7 +179,7 @@ public class CommonOps extends Base {
         ManagePages.initElectron();
     }
 
-    private String getData(String nodeName, int index) {
+    protected static String getData(String nodeName) {
         DocumentBuilder dBuilder;
         Document doc = null;
         File fXmlFile = new File("Config/ConfigFile.xml");
@@ -171,7 +191,19 @@ public class CommonOps extends Base {
             System.out.println("Exception in reading XML file: " + e);
         }
         doc.getDocumentElement().normalize();
-        return doc.getElementsByTagName(nodeName).item(index).getTextContent();
+        return doc.getElementsByTagName(nodeName).item(0).getTextContent();
+    }
+
+    @Step
+    public static void initDBVariables(){
+        dbUrl = getData("dbUrl");
+        username = getData("username");
+        password = getData("password");
+    }
+
+    @Step
+    public static void initURL(){
+        url = getData("url");
     }
 
 

@@ -9,7 +9,7 @@
     <parameter name="Platform" value="api"></parameter>
     <parameter name="Browser" value="chrome"></parameter>
 
-      <classes>
+    <classes>
         <class name="GrafanaAPI"></class>
     </classes>
   </test> <!-- Test -->

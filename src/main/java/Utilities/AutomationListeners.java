@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 
@@ -24,9 +25,11 @@ public class AutomationListeners implements ITestListener {
         System.out.println("---------------------- Test: " + test.getName() + " Started ------------------");
     }
 
-    public void onTestSuccess(ITestResult test) {
+    @Parameters ({"Platform"})
+    public void onTestSuccess(String platform, ITestResult test) {
         System.out.println("---------------------- Test: " + test.getName() + " Passed ------------------");
-        try {
+        if(!(platform.equals("api")))
+            try {
             MonteScreenRecorder.stopRecord();
         } catch (Exception e) {
             e.printStackTrace();
