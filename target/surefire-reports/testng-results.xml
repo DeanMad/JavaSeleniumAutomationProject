@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="16093" started-at="2021-12-01T14:59:33 IST" finished-at="2021-12-01T14:59:49 IST">
+    <groups>
+    </groups>
+    <test name="Electron" duration-ms="16093" started-at="2021-12-01T14:59:33 IST" finished-at="2021-12-01T14:59:49 IST">
+      <class name="TodoElectron">
+        <test-method status="PASS" signature="startSession(java.lang.String,java.lang.String)[pri:0, instance:TodoElectron@76b0ae1b]" name="startSession" is-config="true" duration-ms="3884" started-at="2021-12-01T14:59:33 IST" finished-at="2021-12-01T14:59:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[electron]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startSession -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@76b0ae1b]" name="beforeMethod" is-config="true" duration-ms="221" started-at="2021-12-01T14:59:37 IST" finished-at="2021-12-01T14:59:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void TodoElectron.test01_verifyCreateTask()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="test01_verifyCreateTask()[pri:0, instance:TodoElectron@76b0ae1b]" name="test01_verifyCreateTask" duration-ms="347" started-at="2021-12-01T14:59:37 IST" finished-at="2021-12-01T14:59:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test01_verifyCreateTask -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@76b0ae1b]" name="beforeMethod" is-config="true" duration-ms="11" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void TodoElectron.test02_verifyEditTask()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="test02_verifyEditTask()[pri:0, instance:TodoElectron@76b0ae1b]" name="test02_verifyEditTask" duration-ms="348" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test02_verifyEditTask -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@76b0ae1b]" name="beforeMethod" is-config="true" duration-ms="6" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void TodoElectron.test03_verifyDeleteTask()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="test03_verifyDeleteTask()[pri:0, instance:TodoElectron@76b0ae1b]" name="test03_verifyDeleteTask" duration-ms="10256" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test03_verifyDeleteTask -->
+        <test-method status="PASS" signature="closeSession(java.lang.String)[pri:0, instance:TodoElectron@76b0ae1b]" name="closeSession" is-config="true" duration-ms="560" started-at="2021-12-01T14:59:49 IST" finished-at="2021-12-01T14:59:49 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[electron]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSession -->
+      </class> <!-- TodoElectron -->
+    </test> <!-- Electron -->
+  </suite> <!-- Suite -->
+</testng-results>

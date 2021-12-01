@@ -48,7 +48,7 @@ public class Base {
     protected static ChromeOptions opt;
     protected static String electPropertyKey = "webdriver.chrome.driver";
     protected static String electPropertyValue = "C:\\Automation\\ElectronDriver\\electrondriver.exe";
-    protected static String applicationPath = "C:\\Users\\Sgnv\\AppData\\Local\\Programs\\todolist\\Todolist.exe";
+    protected static String applicationPath = "C:\\Users\\PC\\AppData\\Local\\Programs\\todolist\\Todolist.exe";
     protected static ToDoPage todo;
 
     //Appium

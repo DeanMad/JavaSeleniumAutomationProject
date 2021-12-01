@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="Utilities.AutomationListeners"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name="Electron(failed)">
+    <parameter name="Platform" value="electron"/>
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="TodoElectron">
+        <methods>
+          <include name="test01_verifyCreateTask"/>
+          <include name="beforeMethod"/>
+          <include name="test02_verifyEditTask"/>
+          <include name="closeSession"/>
+          <include name="test03_verifyDeleteTask"/>
+          <include name="startSession"/>
+        </methods>
+      </class> <!-- TodoElectron -->
+    </classes>
+  </test> <!-- Electron(failed) -->
+</suite> <!-- Failed suite [Suite] -->
