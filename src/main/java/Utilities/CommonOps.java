@@ -75,6 +75,7 @@ public class CommonOps extends Base {
                 driver.quit();
                 RemoteDB.closeDBCon();
             case "api":
+                RemoteDB.closeDBCon();
                 break;
             default:
                 driver.quit();
@@ -119,8 +120,9 @@ public class CommonOps extends Base {
 
     @Step("A function to initialize the Api session ")
     private void api_init() {
+        RemoteDB.initSQLConnection();
         RestAssured.baseURI = url;
-        request = RestAssured.given().auth().preemptive().basic("admin", "12345");
+        request = RestAssured.given().auth().preemptive().basic(RemoteDB.getUsername(), RemoteDB.getPassword());
         request.header("Content-Type", "application/json");
     }
 

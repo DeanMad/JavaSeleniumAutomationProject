@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <Enviroment>
-    <Platform>electron</Platform>
-    <Browser>chrome</Browser>
+    <url>http://localhost:3000</url>
+    <path>C:\\Users\\PC\\Desktop\\automation\\Images\\</path>
+    <pathGet>/api/users/</pathGet>
+    <pathPost>/login/</pathPost>
+    <electPropertyKey>webdriver.chrome.driver</electPropertyKey>
+    <electPropertyValue>C:\\Users\\Bracha Bachar\\Desktop\\Automation\\ElectronDriver\\electrondriver.exe</electPropertyValue>
+    <applicationPath>C:\\Users\\Bracha Bachar\\AppData\\Local\\Programs\\todolist\\Todolist.exe</applicationPath>
+    <applicationSignature>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</applicationSignature>
+    <deviceSignature>ce051605b5d4d82c03</deviceSignature>
+    <appPackage>com.shivgadhia.android.ukMortgageCalc</appPackage>
+    <appActivity>.MainActivity</appActivity>
+    <applicationServer>http://localhost:4723/wd/hub</applicationServer>
+    <dbUrl>jdbc:mysql://remotemysql.com:3306/o51EvpDF5Z</dbUrl>
+    <username>o51EvpDF5Z</username>
+    <password>ZvjcsQ9714</password>
 </Enviroment>

@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="16093" started-at="2021-12-01T14:59:33 IST" finished-at="2021-12-01T14:59:49 IST">
+  <suite name="Suite" duration-ms="27686" started-at="2021-12-01T15:21:34 IST" finished-at="2021-12-01T15:22:02 IST">
     <groups>
     </groups>
-    <test name="Electron" duration-ms="16093" started-at="2021-12-01T14:59:33 IST" finished-at="2021-12-01T14:59:49 IST">
+    <test name="Electron" duration-ms="27686" started-at="2021-12-01T15:21:34 IST" finished-at="2021-12-01T15:22:02 IST">
       <class name="TodoElectron">
-        <test-method status="PASS" signature="startSession(java.lang.String,java.lang.String)[pri:0, instance:TodoElectron@76b0ae1b]" name="startSession" is-config="true" duration-ms="3884" started-at="2021-12-01T14:59:33 IST" finished-at="2021-12-01T14:59:37 IST">
+        <test-method status="PASS" signature="startSession(java.lang.String,java.lang.String)[pri:0, instance:TodoElectron@3f3ddbd9]" name="startSession" is-config="true" duration-ms="8203" started-at="2021-12-01T15:21:34 IST" finished-at="2021-12-01T15:21:42 IST">
           <params>
             <param index="0">
               <value>
@@ -23,7 +23,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startSession -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@76b0ae1b]" name="beforeMethod" is-config="true" duration-ms="221" started-at="2021-12-01T14:59:37 IST" finished-at="2021-12-01T14:59:37 IST">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@3f3ddbd9]" name="beforeMethod" is-config="true" duration-ms="477" started-at="2021-12-01T15:21:42 IST" finished-at="2021-12-01T15:21:43 IST">
           <params>
             <param index="0">
               <value>
@@ -34,11 +34,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="test01_verifyCreateTask()[pri:0, instance:TodoElectron@76b0ae1b]" name="test01_verifyCreateTask" duration-ms="347" started-at="2021-12-01T14:59:37 IST" finished-at="2021-12-01T14:59:38 IST">
+        <test-method status="PASS" signature="test01_verifyCreateTask()[pri:0, instance:TodoElectron@3f3ddbd9]" name="test01_verifyCreateTask" duration-ms="5204" started-at="2021-12-01T15:21:43 IST" finished-at="2021-12-01T15:21:49 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test01_verifyCreateTask -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@76b0ae1b]" name="beforeMethod" is-config="true" duration-ms="11" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:38 IST">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@3f3ddbd9]" name="beforeMethod" is-config="true" duration-ms="30" started-at="2021-12-01T15:21:49 IST" finished-at="2021-12-01T15:21:49 IST">
           <params>
             <param index="0">
               <value>
@@ -49,11 +49,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="test02_verifyEditTask()[pri:0, instance:TodoElectron@76b0ae1b]" name="test02_verifyEditTask" duration-ms="348" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:38 IST">
+        <test-method status="PASS" signature="test02_verifyEditTask()[pri:0, instance:TodoElectron@3f3ddbd9]" name="test02_verifyEditTask" duration-ms="841" started-at="2021-12-01T15:21:49 IST" finished-at="2021-12-01T15:21:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test02_verifyEditTask -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@76b0ae1b]" name="beforeMethod" is-config="true" duration-ms="6" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:38 IST">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:TodoElectron@3f3ddbd9]" name="beforeMethod" is-config="true" duration-ms="27" started-at="2021-12-01T15:21:50 IST" finished-at="2021-12-01T15:21:50 IST">
           <params>
             <param index="0">
               <value>
@@ -64,11 +64,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="test03_verifyDeleteTask()[pri:0, instance:TodoElectron@76b0ae1b]" name="test03_verifyDeleteTask" duration-ms="10256" started-at="2021-12-01T14:59:38 IST" finished-at="2021-12-01T14:59:48 IST">
+        <test-method status="PASS" signature="test03_verifyDeleteTask()[pri:0, instance:TodoElectron@3f3ddbd9]" name="test03_verifyDeleteTask" duration-ms="10349" started-at="2021-12-01T15:21:50 IST" finished-at="2021-12-01T15:22:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test03_verifyDeleteTask -->
-        <test-method status="PASS" signature="closeSession(java.lang.String)[pri:0, instance:TodoElectron@76b0ae1b]" name="closeSession" is-config="true" duration-ms="560" started-at="2021-12-01T14:59:49 IST" finished-at="2021-12-01T14:59:49 IST">
+        <test-method status="PASS" signature="closeSession(java.lang.String)[pri:0, instance:TodoElectron@3f3ddbd9]" name="closeSession" is-config="true" duration-ms="955" started-at="2021-12-01T15:22:01 IST" finished-at="2021-12-01T15:22:02 IST">
           <params>
             <param index="0">
               <value>

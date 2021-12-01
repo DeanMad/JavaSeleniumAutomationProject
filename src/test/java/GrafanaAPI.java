@@ -19,7 +19,7 @@ public class GrafanaAPI extends CommonOps {
 
     @Test
     public void test03_LoginAndVerify(){
-        WF_API.login("admin","12345");
+        WF_API.login("admin","admin");
 
     }
 

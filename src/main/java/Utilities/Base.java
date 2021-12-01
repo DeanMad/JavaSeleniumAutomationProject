@@ -30,9 +30,9 @@ public class Base {
     protected static MainPage grafanaPage;
     protected static CalcPage ukCalc;
     protected static CalcSavedPage ukCalcSave;
-    protected static String url = "http://localhost:3000";
+    protected static String url;
     protected static Screen screen;
-    protected static String path = "C:\\Users\\PC\\Desktop\\automation\\Images\\";
+    protected static String path ;
 
     //API
     protected static RequestSpecification request;
@@ -46,26 +46,26 @@ public class Base {
     //Electron
     protected static Actions action;
     protected static ChromeOptions opt;
-    protected static String electPropertyKey = "webdriver.chrome.driver";
-    protected static String electPropertyValue = "C:\\Automation\\ElectronDriver\\electrondriver.exe";
-    protected static String applicationPath = "C:\\Users\\PC\\AppData\\Local\\Programs\\todolist\\Todolist.exe";
+    protected static String electPropertyKey;
+    protected static String electPropertyValue;
+    protected static String applicationPath;
     protected static ToDoPage todo;
 
     //Appium
     protected static DesiredCapabilities capabilities;
-    protected static String applicationSignature = "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App";
-    protected static String deviceSignature = "ce051605b5d4d82c03";
-    protected static String appPackage = "com.shivgadhia.android.ukMortgageCalc";
-    protected static String appActivity = ".MainActivity";
-    protected static String applicationServer = "http://localhost:4723/wd/hub";
+    protected static String applicationSignature ;
+    protected static String deviceSignature ;
+    protected static String appPackage;
+    protected static String appActivity;
+    protected static String applicationServer;
 
     //Desktop
     protected static CalculatorPage calculator;
 
     //DB
-    protected static String dbUrl = "jdbc:mysql://remotemysql.com:3306/o51EvpDF5Z";
-    protected static String username = "o51EvpDF5Z";
-    protected static String password = "ZvjcsQ9714";
+    protected static String dbUrl;
+    protected static String username;
+    protected static String password;
     protected static ResultSet rs;
     protected static Connection con;
     protected static Statement stmt;

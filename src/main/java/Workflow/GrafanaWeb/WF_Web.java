@@ -18,6 +18,7 @@ public class WF_Web extends CommonOps {
         login.setUsername(RemoteDB.getUsername());
         login.setPassword(RemoteDB.getPassword());
         login.submit();
+        driver.navigate().refresh();
     }
 
 
