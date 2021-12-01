@@ -154,10 +154,10 @@ public class CommonOps extends Base {
     @Step("A function to initialize the Desktop session ")
     private void desktop_init() throws MalformedURLException {
         applicationSignature = getData("applicationSignature");
-        applicationServer = getData("applicationServer");
+        desktopServer = getData("desktopServer");
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("app", applicationSignature);
-        driver = new WindowsDriver(new URL(applicationServer), capabilities);
+        driver = new WindowsDriver(new URL(desktopServer), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         ManagePages.initDesktop();
     }

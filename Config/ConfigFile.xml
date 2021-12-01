@@ -11,6 +11,7 @@
     <deviceSignature>ce0517157c63b41702</deviceSignature>
     <appPackage>com.shivgadhia.android.ukMortgageCalc</appPackage>
     <appActivity>.MainActivity</appActivity>
+    <desktopServer>http://127.0.0.1:4723</desktopServer>
     <applicationServer>http://localhost:4723/wd/hub</applicationServer>
     <dbUrl>jdbc:mysql://remotemysql.com:3306/o51EvpDF5Z</dbUrl>
     <username>o51EvpDF5Z</username>

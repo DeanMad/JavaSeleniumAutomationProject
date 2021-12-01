@@ -61,6 +61,7 @@ public class Base {
 
     //Desktop
     protected static CalculatorPage calculator;
+    protected static String desktopServer;
 
     //DB
     protected static String dbUrl;
