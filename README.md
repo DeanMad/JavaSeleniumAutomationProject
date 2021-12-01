@@ -22,7 +22,7 @@ This file contains the configuration needed to run the program.
 *-mvn test -PDesktop
 *-mvn test -PAppium
 
-## Help
+## Note:
 *The tested program elements were found using xPath and ccSeleactor and are 
 *subjected to change in the future.
 
