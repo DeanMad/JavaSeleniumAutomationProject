@@ -15,16 +15,16 @@ This file contains the configuration needed to run the program.
 *https://grafana.com/grafana/download?platform=windows
 
 ### Executing program
-*The program can be excuted using the following mvn commands:
-*-mvn test -PWeb
-*-mvn test -PApi
-*-mvn test -PElectron
-*-mvn test -PDesktop
-*-mvn test -PAppium
+The program can be excuted using the following mvn commands:
+-mvn test -PWeb
+-mvn test -PApi
+-mvn test -PElectron
+-mvn test -PDesktop
+-mvn test -PAppium
 
 ## Note:
-*The tested program elements were found using xPath and ccSeleactor and are 
-*subjected to change in the future.
+The tested program elements were found using xPath and ccSeleactor and are 
+subjected to change in the future.
 
 ## Authors
-*Bracha Bachar,Dean Madion,Saed Jaber.
+Bracha Bachar,Dean Madion,Saed Jaber.
