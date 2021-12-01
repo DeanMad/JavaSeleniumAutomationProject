@@ -24,7 +24,6 @@ public class UIActions extends CommonOps {
         elem.click();
     }
 
-
     @Step("Click without waiting")
     public static void clickNoWait(WebElement elem) {
         elem.click();

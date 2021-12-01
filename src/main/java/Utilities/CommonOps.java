@@ -29,16 +29,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.testng.annotations.Parameters;
 import org.w3c.dom.Document;
 
 public class CommonOps extends Base {
     @BeforeClass
-    public void startSession() throws MalformedURLException {
-        platform = getData("Platform", 0);
-        browser = getData("Browser", 0);
+    @Parameters({"Platform","Browser"})
+    public void startSession(String platform,String browser) throws MalformedURLException {
         switch (platform) {
             case "web":
-                casesSwitch();
+                casesSwitch(browser);
                 web_init();
                 break;
             case "api":
@@ -64,10 +64,9 @@ public class CommonOps extends Base {
             e.printStackTrace();
         }
     }
-
     @AfterClass
-    public void closeSession() {
-
+    @Parameters({"Platform"})
+    public void closeSession(String platform) {
         switch (platform) {
             case "appium":
                 appiumDriver.quit();
@@ -85,7 +84,7 @@ public class CommonOps extends Base {
 
 
     @Step("Switch Cases according to platform")
-    private void casesSwitch() {
+    private void casesSwitch(String browser) {
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();

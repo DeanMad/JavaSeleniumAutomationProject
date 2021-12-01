@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Enviroment>
-<<<<<<< HEAD
     <Platform>electron</Platform>
-=======
-
-    <Platform>appium</Platform>
->>>>>>> 66016d2f1b84753f4e5d9bebf0cb0d7355a4074b
     <Browser>chrome</Browser>
 </Enviroment>

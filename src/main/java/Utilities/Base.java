@@ -61,8 +61,6 @@ public class Base {
 
     //Desktop
     protected static CalculatorPage calculator;
-    protected static String platform;
-    protected static String browser;
 
     //DB
     protected static String dbUrl = "jdbc:mysql://remotemysql.com:3306/o51EvpDF5Z";
@@ -71,4 +69,5 @@ public class Base {
     protected static ResultSet rs;
     protected static Connection con;
     protected static Statement stmt;
+
 }
