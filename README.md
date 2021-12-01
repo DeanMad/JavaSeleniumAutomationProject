@@ -16,11 +16,11 @@ This file contains the configuration needed to run the program.
 
 ### Executing program
 The program can be excuted using the following mvn commands:
--mvn test -PWeb
--mvn test -PApi
--mvn test -PElectron
--mvn test -PDesktop
--mvn test -PAppium
+#-mvn test -PWeb
+#-mvn test -PApi
+#-mvn test -PElectron
+#-mvn test -PDesktop
+#-mvn test -PAppium
 
 ## Note:
 The tested program elements were found using xPath and ccSeleactor and are 
