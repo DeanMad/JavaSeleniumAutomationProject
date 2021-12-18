@@ -1,5 +1,6 @@
-package Utilities;
+package extensions;
 
+import Utilities.CommonOps;
 import com.google.common.util.concurrent.Uninterruptibles;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
@@ -97,9 +98,6 @@ public class UIActions extends CommonOps {
         action.build().perform();
     }
 
-
-
-
     @Step("Get size of a list")
     public static int getListSize(List<WebElement> list) {
         return list.size();
@@ -118,62 +116,6 @@ public class UIActions extends CommonOps {
             return false;
     }
 
-    @Step("Swipe Screen ")
-    //A function to swipe mobile screen
-    public static void swipeScreen(PointOption start, PointOption end) {
-        // Animation default time:
-        //  - Android: 300 ms
-        //  - iOS: 200 ms
-        // final value depends on your app and could be greater
-        final int ANIMATION_TIME = 200; // ms
-
-        final int PRESS_TIME = 200; // ms
-
-        // execute swipe using TouchAction
-        try {
-            new TouchAction(appiumDriver)
-                    .press(start)
-                    // a bit more reliable when we add small wait
-                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(PRESS_TIME)))
-                    .moveTo(end)
-                    .release().perform();
-        } catch (Exception e) {
-            System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
-            return;
-        }
-
-        // always allow swipe action to complete
-        try {
-            Thread.sleep(ANIMATION_TIME);
-        } catch (InterruptedException e) {
-        }
-    }
-
-    @Step("Get request")
-    protected static Response getRequest(String requestPath) {
-        response = request.get(requestPath);
-        return response;
-    }
-
-    @Step("Get request with id")
-    protected static Response getRequestID(String requestPath, String id) {
-        response = request.get(requestPath + id);
-        return response;
-    }
-
-    @Step("Post request")
-    protected static Response postRequest(String requestPath, JSONObject jsonObject) {
-        request.body(jsonObject.toJSONString());
-        response = request.post(requestPath);
-        return response;
-    }
-
-    @Step("Put request")
-    protected static Response putRequest(String requestPath,String id, JSONObject jsonObject) {
-        request.body(jsonObject.toJSONString());
-        response = request.put(requestPath+ id);
-        return response;
-    }
 
 }
 

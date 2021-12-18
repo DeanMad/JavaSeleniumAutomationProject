@@ -1,18 +1,12 @@
 package pageObject.ElectronToDo;
 
-import Utilities.CommonOps;
-import Utilities.UIActions;
-import com.google.common.util.concurrent.Uninterruptibles;
+import extensions.UIActions;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ToDoPage {
 

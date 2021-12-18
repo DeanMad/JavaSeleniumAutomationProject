@@ -1,10 +1,12 @@
-package Utilities;
+package extensions;
+
+import Utilities.CommonOps;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RemoteDB extends CommonOps{
+public class DBActions extends CommonOps {
     public static void initSQLConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

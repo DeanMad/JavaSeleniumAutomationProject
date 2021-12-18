@@ -1,6 +1,6 @@
 package pageObject.AppiumCalc;
 
-import Utilities.UIActions;
+import extensions.UIActions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;

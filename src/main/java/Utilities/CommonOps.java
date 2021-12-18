@@ -1,5 +1,6 @@
 package Utilities;
 
+import extensions.DBActions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -76,9 +77,9 @@ public class CommonOps extends Base {
                 break;
             case "web":
                 driver.quit();
-                RemoteDB.closeDBCon();
+                DBActions.closeDBCon();
             case "api":
-                RemoteDB.closeDBCon();
+                DBActions.closeDBCon();
                 break;
             default:
                 driver.quit();
@@ -122,7 +123,7 @@ public class CommonOps extends Base {
         wait = new WebDriverWait(driver, 5);
         ManagePages.initWeb();
         screen = new Screen();
-        RemoteDB.initSQLConnection();
+        DBActions.initSQLConnection();
     }
 
     @Step("A function to initialize the Api session ")
@@ -131,9 +132,9 @@ public class CommonOps extends Base {
         pathGet = getData("pathGet");
         pathPost = getData("pathPost");
         initDBVariables();
-        RemoteDB.initSQLConnection();
+        DBActions.initSQLConnection();
         RestAssured.baseURI = url;
-        request = RestAssured.given().auth().preemptive().basic(RemoteDB.getUsername(), RemoteDB.getPassword());
+        request = RestAssured.given().auth().preemptive().basic(DBActions.getUsername(), DBActions.getPassword());
         request.header("Content-Type", "application/json");
     }
 

@@ -1,6 +1,6 @@
 package pageObject.WebGrafana;
 
-import Utilities.UIActions;
+import extensions.UIActions;
 import com.google.common.util.concurrent.Uninterruptibles;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;

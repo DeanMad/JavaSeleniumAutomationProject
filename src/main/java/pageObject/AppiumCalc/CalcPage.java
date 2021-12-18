@@ -1,6 +1,7 @@
 package pageObject.AppiumCalc;
 
-import Utilities.UIActions;
+import extensions.MobileActions;
+import extensions.UIActions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -43,42 +44,42 @@ public class CalcPage {
 
     @Step("Setting the amount")
     public void setAmount(String amount) {
-        UIActions.updateText(amountField, amount);
+        MobileActions.updateText(amountField, amount);
     }
 
     @Step("Setting the term")
     public void setTerm(String term) {
-        UIActions.updateText(termField, term);
+        MobileActions.updateText(termField, term);
     }
 
     @Step("Setting the rate")
     public void setRate(String rate) {
-        UIActions.updateText(rateField, rate);
+        MobileActions.updateText(rateField, rate);
     }
 
     @Step("Calculating...")
     public void calculate() {
-        UIActions.clickNoWait(calculateBtn);
+        MobileActions.clickNoWait(calculateBtn);
     }
 
     @Step("Saving")
     public void save() {
-        UIActions.clickNoWait(saveBtn);
+        MobileActions.clickNoWait(saveBtn);
     }
 
     @Step("Get Repayment from result")
     public String getRepayment() {
-        return UIActions.text(repayment);
+        return MobileActions.text(repayment);
     }
 
     @Step("Get Interest from  result")
     public String getInterest() {
-        return UIActions.text(interestOnly);
+        return MobileActions.text(interestOnly);
     }
 
     @Step("Swipe Screen")
     public void swipe() {
-        UIActions.swipeScreen(PointOption.point(1000,1000),PointOption.point(50,1000));
+        MobileActions.swipeScreen(PointOption.point(1000, 1000), PointOption.point(50, 1000));
     }
 
 

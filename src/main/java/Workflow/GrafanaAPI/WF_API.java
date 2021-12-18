@@ -2,11 +2,9 @@ package Workflow.GrafanaAPI;
 
 import Utilities.APIMethods;
 import Utilities.CommonOps;
-import Utilities.UIActions;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WF_API extends CommonOps {

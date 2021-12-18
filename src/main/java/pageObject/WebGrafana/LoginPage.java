@@ -1,6 +1,6 @@
 package pageObject.WebGrafana;
 
-import Utilities.UIActions;
+import extensions.UIActions;
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

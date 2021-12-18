@@ -16,18 +16,11 @@ public class WF_AppiumCalc extends CommonOps {
         ukCalc.save();
     }
 
-    @Step("Verify Result Not Empty")
-    public static void verifyRepaymentAndInterest() {
-        SoftAssert soft = new SoftAssert();
-        soft.assertTrue(ukCalc.getRepayment().length() > 0);
-        soft.assertTrue(ukCalc.getInterest().length() > 0);
-        soft.assertAll();
-    }
 
     @Step("Verify Saved Result")
-    public static void verifySaved() {
+    public static int getSavedSectionSize() {
         ukCalc.swipe();
-        Assert.assertTrue(ukCalcSave.getListSize() > 0);
+        return ukCalcSave.getListSize();
     }
 
     @Step("Verify Saved Result")
