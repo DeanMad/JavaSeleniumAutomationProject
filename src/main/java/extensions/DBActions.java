@@ -22,6 +22,7 @@ public class DBActions extends CommonOps {
     @Step ("Get username from DB")
     public static String getUsername() {
         try {
+
             rs= stmt.executeQuery("SELECT username FROM Login");
             rs.next();
             return rs.getString(1);

@@ -21,13 +21,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Parameters;
@@ -37,7 +37,7 @@ public class CommonOps extends Base {
     @BeforeClass
     @Parameters({"Platform","Browser"})
     public void startSession(String platform,String browser) throws Exception {
-        switch (platform) {
+        switch (platform.toLowerCase()) {
             case "web":
                 casesSwitch(browser);
                 web_init();
@@ -89,7 +89,7 @@ public class CommonOps extends Base {
 
     @Step("Switch Cases according to platform")
     private void casesSwitch(String browser) throws Exception {
-        switch (browser) {
+        switch (browser.toLowerCase()) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
@@ -119,7 +119,7 @@ public class CommonOps extends Base {
         driver.get(url);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 5);
-        ManagePages.initWeb();
+        ManagePages.initWebPages();
         screen = new Screen();
         DBActions.initSQLConnection();
     }
@@ -147,7 +147,7 @@ public class CommonOps extends Base {
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, appActivity);
         appiumDriver = new AppiumDriver<>(new URL(applicationServer), capabilities);
-        ManagePages.initAppium();
+        ManagePages.initAppiumPages();
     }
 
     @Step("A function to initialize the Desktop session ")
@@ -158,7 +158,7 @@ public class CommonOps extends Base {
         capabilities.setCapability("app", applicationSignature);
         driver = new WindowsDriver(new URL(desktopServer), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        ManagePages.initDesktop();
+        ManagePages.initDesktopPage();
     }
 
     @Step("A function to initialize the Electron session ")
@@ -175,10 +175,14 @@ public class CommonOps extends Base {
         driver=new ChromeDriver(capabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         action=new Actions(driver);
-        ManagePages.initElectron();
+        ManagePages.initElectronPage();
     }
 
+<<<<<<< Updated upstream
     @Step("Getting data from the configuration file")
+=======
+    @Step
+>>>>>>> Stashed changes
     protected static String getData(String nodeName) {
         DocumentBuilder dBuilder;
         Document doc = null;

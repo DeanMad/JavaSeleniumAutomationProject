@@ -32,7 +32,7 @@ public class Base {
     protected static CalcSavedPage ukCalcSave;
     protected static String url;
     protected static Screen screen;
-    protected static String path ;
+    protected static String path;
 
     //API
     protected static RequestSpecification request;

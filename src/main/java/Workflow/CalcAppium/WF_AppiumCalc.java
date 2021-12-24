@@ -22,7 +22,7 @@ public class WF_AppiumCalc extends CommonOps {
         return ukCalcSave.getListSize();
     }
 
-    @Step("Verify Saved Result")
+    @Step("Verify Deleted")
     public static void verifyDelete(int index) {
         int currentSize = ukCalcSave.getListSize();
         ukCalc.swipe();

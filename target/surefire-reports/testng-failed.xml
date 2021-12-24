@@ -10,10 +10,7 @@
     <classes>
       <class name="CalcDesktop">
         <methods>
-          <include name="test01_verifyDivide"/>
-          <include name="test01_verifyMultiply"/>
           <include name="beforeMethod"/>
-          <include name="test02_verifySubtract"/>
           <include name="test01_verifyAdd"/>
           <include name="closeSession"/>
           <include name="startSession"/>

@@ -12,24 +12,24 @@ import pageObject.WebGrafana.MainPage;
 public class ManagePages extends Base {
 
     @Step("Initiate web pages")
-    public static void initWeb() {
+    public static void initWebPages() {
         login = PageFactory.initElements(driver, LoginPage.class);
         grafanaPage = PageFactory.initElements(driver, MainPage.class);
     }
 
     @Step("Initiate desktop")
-    public static void initDesktop() {
+    public static void initDesktopPage() {
         calculator = PageFactory.initElements(driver, CalculatorPage.class);
     }
 
     @Step("Initiate appium")
-    public static void initAppium() {
+    public static void initAppiumPages() {
         ukCalc = new CalcPage(appiumDriver);
         ukCalcSave = new CalcSavedPage(appiumDriver);
     }
 
     @Step("Initiate electron")
-    public static void initElectron() {
+    public static void initElectronPage() {
         todo = PageFactory.initElements(driver, ToDoPage.class);
     }
 }

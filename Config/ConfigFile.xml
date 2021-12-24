@@ -5,8 +5,8 @@
     <pathGet>/api/users/</pathGet>
     <pathPost>/login/</pathPost>
     <electPropertyKey>webdriver.chrome.driver</electPropertyKey>
-    <electPropertyValue>C:\Users\Bracha Bachar\Desktop\Automation\ElectronDriver\electrondriver.exe</electPropertyValue>
-    <applicationPath>C:\\Users\\Bracha Bachar\\AppData\\Local\\Programs\\todolist\\Todolist.exe</applicationPath>
+    <electPropertyValue>C:\Automation\ElectronDriver\electrondriver.exe</electPropertyValue>
+    <applicationPath>C:\\Users\\PC\\AppData\\Local\\Programs\\todolist\\Todolist.exe</applicationPath>
     <applicationSignature>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</applicationSignature>
     <deviceSignature>ce0517157c63b41702</deviceSignature>
     <appPackage>com.shivgadhia.android.ukMortgageCalc</appPackage>

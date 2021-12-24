@@ -1,18 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 1, Errors: 0, Skipped: 9, Time elapsed: 2.446 s <<< FAILURE! - in TestSuite
-startSession(CalcDesktop)  Time elapsed: 2.125 s  <<< FAILURE!
-org.openqa.selenium.SessionNotCreatedException: 
-Unable to create a new remote session. Please check the server log for more details. Original error: Unable to parse remote response: 
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-5PRV2GL', ip: '192.168.1.153', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
-Driver info: driver.version: WindowsDriver
-Caused by: java.lang.reflect.InvocationTargetException
-Caused by: org.openqa.selenium.WebDriverException: Unable to parse remote response: 
-Caused by: org.openqa.selenium.json.JsonException: 
-Expected to read a START_MAP but instead have: END. Last 0 characters read: 
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-5PRV2GL', ip: '192.168.1.153', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
-Driver info: driver.version: WindowsDriver
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.265 s - in TestSuite

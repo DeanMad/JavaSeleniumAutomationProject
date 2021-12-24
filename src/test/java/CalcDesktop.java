@@ -21,7 +21,6 @@ public class CalcDesktop extends CommonOps {
     @Description("This Test is making a division action and verifies the result")
     public void test01_verifyDivide() {
         WF_Calc.verifyDivide(calculator.one, calculator.one, "1");
-
     }
 
     @Test(description = "Multiplication action")
