@@ -27,7 +27,7 @@ public class APIMethods extends ApiActions {
         return true;
     }
 
-    @Step
+    @Step ("Login")
     public static String login(String user,String password){
          params = new JSONObject();
          params.put("user",user);

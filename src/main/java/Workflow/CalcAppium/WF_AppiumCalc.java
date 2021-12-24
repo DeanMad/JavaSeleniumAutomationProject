@@ -1,9 +1,9 @@
 package Workflow.CalcAppium;
 
 import Utilities.CommonOps;
+import extensions.Verifications;
 import io.qameta.allure.Step;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 public class WF_AppiumCalc extends CommonOps {
 
@@ -15,7 +15,6 @@ public class WF_AppiumCalc extends CommonOps {
         ukCalc.calculate();
         ukCalc.save();
     }
-
 
     @Step("Verify Saved Result")
     public static int getSavedSectionSize() {
@@ -29,6 +28,6 @@ public class WF_AppiumCalc extends CommonOps {
         ukCalc.swipe();
         ukCalcSave.deleteItem(index);
         int newSize = ukCalcSave.getListSize();
-        Assert.assertTrue(newSize <= currentSize);
+        Verifications.verifyDeletion(newSize, currentSize);
     }
 }

@@ -1,5 +1,6 @@
 package pageObject.DesktopCalc;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -58,7 +59,7 @@ public class CalculatorPage {
     @FindBy(how = How.XPATH, using = "//*[@AutomationId='CalculatorResults']")
     private WebElement result;
 
-
+    @Step("Getting clean result")
     public String getResult() {
         String temp=result.getText();
         String[] extractNumber=temp.split(" ");
@@ -66,7 +67,7 @@ public class CalculatorPage {
 
     }
 
-
+    @Step("Adding")
     public void add(WebElement x, WebElement y) {
         x.click();
         add.click();
@@ -74,10 +75,12 @@ public class CalculatorPage {
         equal.click();
     }
 
+    @Step("Clear calculator")
     public void clear() {
         clear.click();
     }
 
+    @Step("Subtracting")
     public void subtract(WebElement x, WebElement y) {
         x.click();
         subtract.click();
@@ -85,6 +88,7 @@ public class CalculatorPage {
         equal.click();
     }
 
+    @Step("Multiplying")
     public void multiply(WebElement x, WebElement y) {
         x.click();
         multiply.click();
@@ -92,6 +96,7 @@ public class CalculatorPage {
         equal.click();
     }
 
+    @Step("Dividing")
     public void divide(WebElement x, WebElement y) {
         x.click();
         divide.click();

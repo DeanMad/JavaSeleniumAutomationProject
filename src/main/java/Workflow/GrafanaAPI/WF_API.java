@@ -18,21 +18,6 @@ public class WF_API extends CommonOps {
         Assert.assertTrue(list.size() > 0);
     }
 
-    @Step()
-    public static void verifyID(String id) {
-        Assert.assertTrue(APIMethods.verifyIDExistsInList(id));
-    }
 
-    @Step()
-    public static void updateEmail(String id, String email) {
-        Assert.assertTrue(APIMethods.changeEmail(id, email).contains("User updated"));
-    }
-
-    @Step()
-    public static void login(String username, String password) {
-
-        Assert.assertTrue(APIMethods.login(username, password).contains("Logged in"));
-
-    }
 
 }

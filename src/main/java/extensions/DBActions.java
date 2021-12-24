@@ -1,6 +1,7 @@
 package extensions;
 
 import Utilities.CommonOps;
+import io.qameta.allure.Step;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class DBActions extends CommonOps {
         }
     }
 
+    @Step ("Get username from DB")
     public static String getUsername() {
         try {
             rs= stmt.executeQuery("SELECT username FROM Login");
@@ -30,6 +32,7 @@ public class DBActions extends CommonOps {
         return "";
     }
 
+    @Step ("Get password from DB")
     public static String getPassword() {
         try {
             rs= stmt.executeQuery("SELECT password FROM Login");
@@ -42,6 +45,7 @@ public class DBActions extends CommonOps {
         return "";
     }
 
+    @Step ("Closing connection to the DB")
     public static void closeDBCon() {
         try {
             con.close();

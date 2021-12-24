@@ -22,12 +22,7 @@ public class WF_Web extends CommonOps {
     }
 
 
-    @Step
-    public static void verifyLogin() {
-        Assert.assertEquals(driver.getTitle(), "Home - Grafana");
-    }
-
-    @Step
+    @Step("Creating a user")
     public static void createUser(String name, String email, String username, String password) {
         grafanaPage.usersMenu();
         grafanaPage.createUser(name, email, username, password);
@@ -39,7 +34,7 @@ public class WF_Web extends CommonOps {
         return  grafanaPage.contains(username);
     }
 
-    @Step
+    @Step ("Deleting a user")
     public static void deleteUser(String username) {
         grafanaPage.usersMenu();
         grafanaPage.deleteUser(username);

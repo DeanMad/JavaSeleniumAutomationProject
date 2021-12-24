@@ -87,7 +87,6 @@ public class CommonOps extends Base {
         }
     }
 
-
     @Step("Switch Cases according to platform")
     private void casesSwitch(String browser) throws Exception {
         switch (browser) {
@@ -110,7 +109,6 @@ public class CommonOps extends Base {
             default: throw new Exception("Invalid browser");
         }
     }
-
 
     @Step("A function to initialize the web session ")
     private void web_init() {
@@ -180,6 +178,7 @@ public class CommonOps extends Base {
         ManagePages.initElectron();
     }
 
+    @Step("Getting data from the configuration file")
     protected static String getData(String nodeName) {
         DocumentBuilder dBuilder;
         Document doc = null;
@@ -195,14 +194,14 @@ public class CommonOps extends Base {
         return doc.getElementsByTagName(nodeName).item(0).getTextContent();
     }
 
-    @Step
+    @Step ("Initiating DB variables")
     public static void initDBVariables(){
         dbUrl = getData("dbUrl");
         username = getData("username");
         password = getData("password");
     }
 
-    @Step
+    @Step ("Initiating url variable")
     public static void initURL(){
         url = getData("url");
     }
