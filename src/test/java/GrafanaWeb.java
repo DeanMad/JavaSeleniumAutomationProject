@@ -15,21 +15,13 @@ public class GrafanaWeb extends CommonOps {
     }
 
     @Test(dataProviderClass = DDT.class, dataProvider = "data-provider")
-<<<<<<< Updated upstream
     @Description ("Creaing users from a csv file")
-=======
-    @Description ("Create users with CSV file")
->>>>>>> Stashed changes
     public void test02(String name, String email, String username, String password) {
         WF_Web.createUser(name,email,username,password);
     }
 
     @Test (description = "delete user")
-<<<<<<< Updated upstream
     @Description ("This test deletes a user")
-=======
-    @Description ("Create a specific user by username")
->>>>>>> Stashed changes
     public void test03() {
         WF_Web.deleteUser("KukuUser21");
     }
