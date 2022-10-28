@@ -178,11 +178,7 @@ public class CommonOps extends Base {
         ManagePages.initElectronPage();
     }
 
-<<<<<<< Updated upstream
     @Step("Getting data from the configuration file")
-=======
-    @Step
->>>>>>> Stashed changes
     protected static String getData(String nodeName) {
         DocumentBuilder dBuilder;
         Document doc = null;
@@ -209,6 +205,5 @@ public class CommonOps extends Base {
     public static void initURL(){
         url = getData("url");
     }
-
 
 }
