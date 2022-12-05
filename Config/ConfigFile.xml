@@ -4,6 +4,8 @@
     <path>C:\\Users\\PC\\Desktop\\automation\\Images\\</path>
     <pathGet>/api/users/</pathGet>
     <pathPost>/login/</pathPost>
+    <username>admin</username>
+    <password>admin</password>
     <electPropertyKey>webdriver.chrome.driver</electPropertyKey>
     <electPropertyValue>C:\Automation\ElectronDriver\electrondriver.exe</electPropertyValue>
     <applicationPath>C:\\Users\\PC\\AppData\\Local\\Programs\\todolist\\Todolist.exe</applicationPath>

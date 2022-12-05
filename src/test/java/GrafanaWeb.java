@@ -7,8 +7,8 @@ import org.sikuli.script.FindFailed;
 import org.testng.annotations.Test;
 
 public class GrafanaWeb extends CommonOps {
-    @Test (description = "Login with DB")
-    @Description ("Login with credentials from DB")
+    @Test (description = "Login")
+    @Description ("Login")
     public void test01() {
         WF_Web.login();
         Verifications.verifyLogin();

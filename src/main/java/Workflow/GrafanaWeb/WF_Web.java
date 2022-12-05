@@ -15,12 +15,11 @@ public class WF_Web extends CommonOps {
 
     @Step("Login to Grafana")
     public static void login() {
-        login.setUsername(DBActions.getUsername());
-        login.setPassword(DBActions.getPassword());
+        login.setUsername(getData("username"));
+        login.setPassword(getData("password"));
         login.submit();
         driver.navigate().refresh();
     }
-
 
     @Step("Creating a user")
     public static void createUser(String name, String email, String username, String password) {
@@ -40,7 +39,6 @@ public class WF_Web extends CommonOps {
         grafanaPage.deleteUser(username);
         Assert.assertFalse(containsUser(username));
     }
-
 
     @Step("Verify user exists")
     public static void verifyUserExists(String username)
