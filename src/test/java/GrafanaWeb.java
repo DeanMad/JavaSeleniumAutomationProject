@@ -15,7 +15,7 @@ public class GrafanaWeb extends CommonOps {
     }
 
     @Test(dataProviderClass = DDT.class, dataProvider = "data-provider")
-    @Description ("Creaing users from a csv file")
+    @Description ("Creaing users from a csv external file")
     public void test02(String name, String email, String username, String password) {
         WF_Web.createUser(name,email,username,password);
     }
