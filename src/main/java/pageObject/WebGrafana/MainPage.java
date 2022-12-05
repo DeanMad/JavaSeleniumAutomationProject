@@ -11,12 +11,14 @@ import java.util.concurrent.TimeUnit;
 
 public class MainPage {
 
-    @FindBy(xpath = "//*[@id='reactRoot']/div/nav/div[2]/div[7]/a")
+    @FindBy(xpath = "//*[@id=\"reactRoot\"]/div/main/div[3]/div/div[1]/div/div[1]/div/div/nav/div[2]/ul/li[2]/a")
     private WebElement btn_users;
 
-    @FindBy(xpath = "//a[@class='css-aja5tg-button']")
+    @FindBy(xpath = "//*[@id=\"reactRoot\"]/div/main/div[3]/div/div[1]/div/div[2]/div[1]/a/span")
     private WebElement btn_createUserMenu;
 
+    @FindBy(xpath = "//*[@id=\"reactRoot\"]/div/nav/div[3]/div[6]/a/span/div")
+    private WebElement btn_configuration_page;
 
     @FindBy(xpath = "//input[@name='name']")
     private WebElement name_input_field;
@@ -51,7 +53,12 @@ public class MainPage {
 
     @Step("Navigate to users page")
     public void usersMenu() {
-        UIActions.click(btn_users);
+        UIActions.click(btn_configuration_page);
+    }
+
+    @Step ("Navigate to configuration page")
+    public void configurationBtn() {
+        UIActions.click(btn_configuration_page);
     }
 
     @Step("Navigate to create user form")
@@ -63,7 +70,6 @@ public class MainPage {
         UIActions.updateText(password_input_field, password);
         UIActions.click(btn_submit);
         Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
-
     }
 
     @Step("Search for a user")
@@ -91,4 +97,5 @@ public class MainPage {
     public boolean clickedButtonStatus() {
         return UIActions.clickedButtonStatus(btn_lightMood, "for", "option-light-radiogroup-2");
     }
+
 }
